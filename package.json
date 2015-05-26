@@ -1,7 +1,7 @@
 {
   "name": "glob-cp",
   "version": "1.0.0",
-  "description": "find files with glob patterns, transform the target path, and copy the files.",
+  "description": "copy files and directories with glob patterns and variables.",
   "main": "index.js",
   "scripts": {
     "test": "cd test && node test.js"
