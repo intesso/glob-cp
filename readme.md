@@ -1,18 +1,6 @@
 # glob-cp
 copy files and directories with [glob](https://github.com/isaacs/node-glob) patterns and [variables](https://github.com/intesso/glob-resolve).
 
-# when to use it
-use it when you want to copy several files/directories.
-
-# how to use it
- - it uses glob with variables. see: [glob-var](https://github.com/intesso/glob-var), [glob-resolve](https://github.com/intesso/glob-resolve)
- - you can use the whole [glob](https://github.com/isaacs/node-glob) syntax in the `src` and `dest` pattern,
-   as well as the `glob-var` variables starting with a colon `:`
- - instead of the glob filename Array, `glob-resolve` returns a search object with:
-   - src: `glob-var` object for the source pattern
-   - dest: `glob-var` object for the destination pattern
- - you are most likely interrested in the `result.dest.path` Array, which is the transformed `glob` filenames Array.
-
 # install
 
 ```bash
@@ -20,6 +8,7 @@ npm install glob-cp
 ```
 
 # use
+
 ```js
 
 var cp = require('glob-cp');
@@ -39,6 +28,10 @@ cp(src, dest, options, function(err) {
 cp.sync('fixtures/:module/public', 'public/:module');
 
 ```
+
+ - it uses glob with variables. see: [glob-var](https://github.com/intesso/glob-var), [glob-resolve](https://github.com/intesso/glob-resolve)
+ - you can use the whole [glob](https://github.com/isaacs/node-glob) syntax in the `src` and `dest` pattern,
+   as well as the `glob-var` variables starting with a colon `:`
 
 # functions
 
