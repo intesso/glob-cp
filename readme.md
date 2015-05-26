@@ -1,8 +1,8 @@
 # glob-cp
-find files with [glob](https://github.com/isaacs/node-glob) patterns, [transform](https://github.com/intesso/glob-resolve) the target path, and copy the files.
+copy files and directories with [glob](https://github.com/isaacs/node-glob) patterns and [variables](https://github.com/intesso/glob-resolve).
 
 # when to use it
-use it when you want to copy several files/directories and transform the file/directory path.
+use it when you want to copy several files/directories.
 
 # how to use it
  - it uses glob with variables. see: [glob-var](https://github.com/intesso/glob-var), [glob-resolve](https://github.com/intesso/glob-resolve)
@@ -25,14 +25,14 @@ npm install glob-cp
 var cp = require('glob-cp');
 
 // async
-var src = __dirname + '/fixtures/:module/public/**';
-var dest = __dirname + '/public/:module/**';
-cp(src, dest, function(err) {
+var src = __dirname + '/fixtures/:module/public';
+var dest = __dirname + '/public/:module';
+var options = {recursive: true};
+cp(src, dest, options, function(err) {
     if (err) console.error(err);
 });
 
 ```
-
 
 ```js
 //or sync version
