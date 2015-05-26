@@ -1,0 +1,36 @@
+{
+  "name": "glob-cp",
+  "version": "1.0.0",
+  "description": "find files with glob patterns, transform the target path, and copy the files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd test && node test.js"
+  },
+  "keywords": [
+    "glob",
+    "var",
+    "variable",
+    "param",
+    "parameter",
+    "transform",
+    "glob transform",
+    "copy",
+    "copy files",
+    "transform path"
+  ],
+  "author": "Andi Neck",
+  "license": "MIT",
+  "dependencies": {
+    "after": "^0.8.1",
+    "cp-file": "^2.2.0",
+    "debug": "^2.2.0",
+    "glob-resolve": "^1.0.3",
+    "onetime": "^1.0.0",
+    "recursive-readdir": "^1.2.1"
+  },
+  "devDependencies": {
+    "object-equal": "^1.0.0",
+    "rimraf": "^2.3.4",
+    "tape": "^4.0.0"
+  }
+}
