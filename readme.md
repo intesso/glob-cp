@@ -29,9 +29,7 @@ cp.sync('fixtures/:module/public', 'public/:module');
 
 ```
 
- - it uses glob with variables. see: [glob-var](https://github.com/intesso/glob-var), [glob-resolve](https://github.com/intesso/glob-resolve)
- - you can use the whole [glob](https://github.com/isaacs/node-glob) syntax in the `src` and `dest` pattern,
-   as well as the `glob-var` variables starting with a colon `:`
+ > you can use the whole [glob](https://github.com/isaacs/node-glob) syntax in the `src` and `dest` pattern, as well as the `glob-var` variables starting with a colon `:`
 
 # functions
 
