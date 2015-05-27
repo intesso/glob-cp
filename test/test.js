@@ -31,11 +31,11 @@ test('do sync file', function(t) {
 
   var result = cp.sync(src, dest);
 
-    t.ok(!result);
-    t.ok(exists(__dirname + '/public/test_pub/js/bundle.js'));
-    t.ok(exists(__dirname + '/public/Irish-Pub/js/bundle.js'));
+  t.ok(!result);
+  t.ok(exists(__dirname + '/public/test_pub/js/bundle.js'));
+  t.ok(exists(__dirname + '/public/Irish-Pub/js/bundle.js'));
 
-    t.end(result);
+  t.end(result);
 
 });
 
@@ -78,6 +78,25 @@ test('do async dir non recursive', function(t) {
 
 });
 
+test('do sync dir recursive', function(t) {
+
+  cleanup();
+
+  var src = __dirname + '/fixtures/:module/public';
+  var dest = __dirname + '/public/:module';
+  var opts = {recursive: true};
+
+  var result = cp.sync(src, dest, opts);
+
+  t.ok(!result);
+  t.ok(exists(__dirname + '/public/test_pub/readme.md'));
+  t.ok(exists(__dirname + '/public/Irish-Pub/readme.md'));
+  t.ok(exists(__dirname + '/public/test_pub/js/bundle.js'));
+  t.ok(exists(__dirname + '/public/Irish-Pub/js/bundle.js'));
+
+  t.end(result);
+
+});
 
 
 function cleanup() {

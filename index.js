@@ -133,16 +133,16 @@ function _getFiles(p, files) {
   });
 }
 
-function _recursiveReaddirSync(path) {
+function _recursiveReaddirSync(p) {
   var list = [], stats;
-  var files = fs.readdirSync(path);
+  var files = fs.readdirSync(p);
 
   files.forEach(function(file) {
-    stats = fs.statSync(p.join(path, file));
+    stats = fs.statSync(path.join(p, file));
     if (stats.isDirectory()) {
-      list = list.concat(_recursiveReaddirSync(p.join(path, file)));
+      list = list.concat(_recursiveReaddirSync(path.join(p, file)));
     } else {
-      list.push(p.join(path, file));
+      list.push(path.join(p, file));
     }
   });
 
