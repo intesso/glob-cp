@@ -1,10 +1,14 @@
 {
   "name": "glob-cp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "copy files and directories with glob patterns and variables.",
   "main": "index.js",
   "scripts": {
     "test": "cd test && node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/intesso/glob-cp.git"
   },
   "keywords": [
     "glob",
