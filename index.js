@@ -5,6 +5,7 @@
 var fs = require('fs');
 var path = require('path');
 var cp = require('cp-file');
+var rimraf = require('rimraf');
 var resolve = require('glob-resolve');
 var recursive = require('recursive-readdir');
 var onetime = require('onetime');
@@ -33,6 +34,8 @@ exports.async = function(srcPattern, destPattern, options, cb) {
 
     srcPaths.forEach(function(src, i) {
       var dest = destPaths[i];
+
+      if (options.force) rimraf.sync(dest);
 
       fs.stat(src, function(err, stat) {
 
@@ -65,6 +68,8 @@ exports.async = function(srcPattern, destPattern, options, cb) {
 exports = module.exports = exports.async;
 
 exports.sync = function(srcPattern, destPattern, options) {
+  if (!options) options = {};
+
   // extract src vars
   var result = resolve.sync(srcPattern, destPattern, options);
 
@@ -76,6 +81,8 @@ exports.sync = function(srcPattern, destPattern, options) {
 
     var stat = fs.statSync(src);
     var isDir = stat.isDirectory();
+
+    if (options.force) rimraf.sync(dest);
 
     if (isDir) {
       var readdir = (options.recursive) ? _recursiveReaddirSync : _readFilesSync;

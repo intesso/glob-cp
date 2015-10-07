@@ -98,6 +98,29 @@ test('do sync dir recursive', function(t) {
 
 });
 
+test('do sync dir recursive with force', function(t) {
+
+  cleanup();
+
+  // create symlink on destination
+  fs.mkdirSync(__dirname + '/public');
+  fs.symlinkSync(__dirname + '/fixtures/nothing-here/', __dirname + '/public/Irish-Pub', 'dir');
+
+  var src = __dirname + '/fixtures/:module/public';
+  var dest = __dirname + '/public/:module';
+  var opts = {recursive: true, force: true};
+
+  var result = cp.sync(src, dest, opts);
+
+  t.ok(!result);
+  t.ok(exists(__dirname + '/public/test_pub/readme.md'));
+  t.ok(exists(__dirname + '/public/Irish-Pub/readme.md'));
+  t.ok(exists(__dirname + '/public/test_pub/js/bundle.js'));
+  t.ok(exists(__dirname + '/public/Irish-Pub/js/bundle.js'));
+
+  t.end(result);
+});
+
 
 function cleanup() {
   rm.sync(__dirname + '/public');

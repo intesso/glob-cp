@@ -16,7 +16,7 @@ var cp = require('glob-cp');
 // async
 var src = __dirname + '/fixtures/:module/public';
 var dest = __dirname + '/public/:module';
-var options = {recursive: true};
+var options = {recursive: true, force: true};
 cp(src, dest, options, function(err) {
     if (err) console.error(err);
 });
@@ -39,6 +39,21 @@ async glob cp version.
 ## cp.sync(srcPattern, destPattern [,options])
 sync glob cp version.
 
+
+# options
+
+```js
+// options with the following default values:
+var options = {
+
+  // recusively copy files
+  recursive: false,
+
+  // remove destination before operation
+  force: false
+
+};
+```
 
 # test
 ```bash
